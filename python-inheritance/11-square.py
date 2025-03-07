@@ -37,6 +37,7 @@ class Rectangle(BaseGeometry):
         """Returns a string representation of the rectangle."""
         return f"[Rectangle] {self.__width}/{self.__height}"
 
+
 class Square(Rectangle):
     """Square class that inherits from Rectangle."""
     
