@@ -4,7 +4,38 @@ This module defines a Square class that inherits from Rectangle,
 which in turn inherits from BaseGeometry.
 """
 
-class Rectangle:
+
+class BaseGeometry:
+    """
+    Base class for geometric shapes.
+    """
+
+    def area(self):
+        """
+        Raises an exception because the method should be implemented
+        by subclasses.
+        """
+        raise Exception("area() is not implemented")
+
+    def integer_validator(self, name, value):
+        """
+        Validates if the value is a positive integer.
+
+        Args:
+            name (str): The name of the attribute.
+            value (int): The value to be validated.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than or equal to 0.
+        """
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+
+
+class Rectangle(BaseGeometry):
     """
     Rectangle class that inherits from BaseGeometry and validates
     the width and height. The area() method is also implemented.
@@ -35,23 +66,6 @@ class Rectangle:
         [Rectangle] <width>/<height>
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
-
-    def integer_validator(self, name, value):
-        """
-        Validates if the value is a positive integer.
-
-        Args:
-            name (str): The name of the attribute.
-            value (int): The value to be validated.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
-        """
-        if type(value) != int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
 
 
 class Square(Rectangle):
