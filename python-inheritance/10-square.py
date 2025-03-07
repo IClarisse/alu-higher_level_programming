@@ -1,57 +1,95 @@
 #!/usr/bin/python3
 """
-Module that defines the Square class.
-The Square class inherits from Rectangle and validates the size attribute.
+Module 10-square.py
+
+This module defines a Square class that inherits from Rectangle.
 """
 
 
-class BaseGeometry:
-    """Base class for geometry-related operations."""
-
-    def area(self):
-        """Raises an exception if called directly. To be implemented by subclasses."""
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """Validates that the value is a positive integer."""
-        if type(value) is not int:
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
-
-
-class Rectangle(BaseGeometry):
-    """Rectangle class that inherits from BaseGeometry."""
+class Rectangle:
+    """
+    A Rectangle class.
+    """
 
     def __init__(self, width, height):
-        """Initializes a Rectangle with width and height."""
-        self.integer_validator("width", width)  # Validate width
-        self.integer_validator("height", height)  # Validate height
+        """
+        Initializes a Rectangle instance.
 
-        self.__width = width  # Private width attribute
-        self.__height = height  # Private height attribute
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        self.integer_validator("width", width)
+        self.integer_validator("height", height)
+        self.__width = width
+        self.__height = height
+
+    def integer_validator(self, name, value):
+        """
+        Validates the value.
+
+        Args:
+            name (str): The name of the value.
+            value (int): The value to validate.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than or equal to 0.
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
 
     def area(self):
-        """Calculates the area of the rectangle."""
+        """
+        Calculates the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
         return self.__width * self.__height
 
     def __str__(self):
-        """Returns a string representation of the rectangle."""
-        return f"[Rectangle] {self.__width}/{self.__height}"
+        """
+        Returns a string representation of the Rectangle.
+
+        Returns:
+            str: The string representation of the Rectangle.
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
 
 
 class Square(Rectangle):
-    """Square class that inherits from Rectangle."""
+    """
+    A Square class that inherits from Rectangle.
+    """
 
     def __init__(self, size):
-        """Initializes a square with a given size."""
-        self.integer_validator("size", size)  # Validate size
-        super().__init__(size, size)  # Call the parent constructor with the same size for width and height
+        """
+        Initializes a Square instance.
+
+        Args:
+            size (int): The size of the square.
+        """
+        self.integer_validator("size", size)
+        super().__init__(size, size)
+        self.__size = size
 
     def area(self):
-        """Calculates the area of the square."""
-        return self._Rectangle__width * self._Rectangle__height
+        """
+        Calculates the area of the square.
+
+        Returns:
+            int: The area of the square.
+        """
+        return self.__size * self.__size
 
     def __str__(self):
-        """Returns a string representation of the square."""
-        return f"[Square] {self._Rectangle__width}/{self._Rectangle__height}"
+        """
+        Returns a string representation of the Square.
+
+        Returns:
+            str: The string representation of the Square.
+        """
+        return "[Rectangle] {}/{}".format(self.__size, self.__size)
