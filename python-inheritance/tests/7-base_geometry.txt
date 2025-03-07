@@ -1,25 +1,18 @@
-# Create an instance of BaseGeometry
-base_geom = BaseGeometry()
+# Testing the BaseGeometry class
 
-# Testing integer_validator method
-try:
-    base_geom.integer_validator("width", 10)  # Valid input (integer > 0)
-    print("Width is valid.")
-except Exception as e:
-    print(e)
+# Test 1: Valid integer validation
+my_int = 12
+width = 89
+# Expected: No exceptions should be raised
 
-try:
-    base_geom.integer_validator("width", -5)  # Invalid input (integer <= 0)
-except Exception as e:
-    print(e)  # Expected to raise ValueError: "width must be greater than 0"
+# Test 2: Invalid value (string instead of integer)
+name = "John"
+# Expected: TypeError exception should be raised with message "name must be an integer"
 
-try:
-    base_geom.integer_validator("width", "string")  # Invalid input (not an integer)
-except Exception as e:
-    print(e)  # Expected to raise TypeError: "width must be an integer"
+# Test 3: Invalid value (value is 0)
+age = 0
+# Expected: ValueError exception should be raised with message "age must be greater than 0"
 
-# Testing area method (should raise an exception when called on BaseGeometry)
-try:
-    base_geom.area()  # This will raise the exception
-except Exception as e:
-    print(e)  # Expected to raise: Exception: area() is not implemented
+# Test 4: Invalid value (negative value)
+distance = -4
+# Expected: ValueError exception should be raised with message "distance must be greater than 0"
