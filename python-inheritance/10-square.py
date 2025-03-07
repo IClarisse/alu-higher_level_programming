@@ -1,22 +1,63 @@
 #!/usr/bin/python3
 """
 This module defines a Square class that inherits from Rectangle,
-which in turn inherits from BaseGeometry. The Square class represents
-a square and validates the size during initialization.
+which in turn inherits from BaseGeometry.
 """
 
-from rectangle import Rectangle
+class Rectangle:
+    """
+    Rectangle class that inherits from BaseGeometry and validates
+    the width and height. The area() method is also implemented.
+    """
+
+    def __init__(self, width, height):
+        """
+        Initializes the Rectangle instance with width and height.
+
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+        """
+        self.integer_validator("width", width)  # Validate the width
+        self.integer_validator("height", height)  # Validate the height
+        self.__width = width
+        self.__height = height
+
+    def area(self):
+        """
+        Returns the area of the rectangle (width * height).
+        """
+        return self.__width * self.__height
+
+    def __str__(self):
+        """
+        Returns the string representation of the rectangle in the form:
+        [Rectangle] <width>/<height>
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
+    def integer_validator(self, name, value):
+        """
+        Validates if the value is a positive integer.
+
+        Args:
+            name (str): The name of the attribute.
+            value (int): The value to be validated.
+
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than or equal to 0.
+        """
+        if type(value) != int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+
 
 class Square(Rectangle):
     """
-    Square class that inherits from Rectangle.
-
-    This class validates that the size is a positive integer and initializes
-    the width and height of the square using the size value. It also calculates
-    the area of the square using the inherited area method from the Rectangle class.
-
-    Attributes:
-        size (int): The size of the square.
+    Square class that inherits from Rectangle and validates the size,
+    ensuring it's a positive integer.
     """
 
     def __init__(self, size):
@@ -27,15 +68,19 @@ class Square(Rectangle):
             size (int): The size of the square.
         """
         self.integer_validator("size", size)  # Validate the size
-        # Initialize the parent Rectangle with size for both width and height
-        super().__init__(size, size)
+        self.__width = size
+        self.__height = size
 
     def area(self):
         """
         Returns the area of the square (size * size).
         Inherited from Rectangle's area method.
-
-        Returns:
-            int: The area of the square.
         """
-        return super().area()  # Uses Rectangle's area method
+        return self.__width * self.__height
+
+    def __str__(self):
+        """
+        Returns the string representation of the square in the form:
+        [Rectangle] <size>/<size>
+        """
+        return "[Rectangle] {}/{}".format(self.__width, self.__height)
