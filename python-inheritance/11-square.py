@@ -2,17 +2,17 @@
 """
 Module for Square class
 This module contains the definition of a Square class that inherits
-from the Rectangle class. The Square class represents a geometric
+the Rectangle class. The Square class represents a geometric
 square with equal sides.
 """
 
 
 class Square(Rectangle):
     """
-    Square class that inherits from Rectangle
+    Square class that inherits Rectangle
     
     This class represents a square, which is a special case of a rectangle
-    where all sides are equal. It inherits from the Rectangle class and
+    where all sides are equal. It inherits the Rectangle class and
     implements specific behavior for squares.
     
     Attributes:
