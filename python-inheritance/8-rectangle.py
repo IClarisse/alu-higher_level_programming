@@ -4,7 +4,32 @@ This module defines a Rectangle class that inherits from BaseGeometry.
 The class validates the width and height during instantiation.
 """
 
-from 7-base_geometry import BaseGeometry
+class BaseGeometry:
+    """
+    Base class with common geometry validation methods.
+    """
+    
+    def area(self):
+        """Raises an exception when not implemented in the subclass."""
+        raise Exception("area() is not implemented")
+    
+    def integer_validator(self, name, value):
+        """
+        Validates that the value is a positive integer.
+        
+        Args:
+            name (str): The name of the variable.
+            value (int): The value to be validated.
+            
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than or equal to 0.
+        """
+        if type(value) is not int:
+            raise TypeError("{} must be an integer".format(name))
+        if value <= 0:
+            raise ValueError("{} must be greater than 0".format(name))
+
 
 class Rectangle(BaseGeometry):
     """
@@ -26,3 +51,9 @@ class Rectangle(BaseGeometry):
         # Private attributes
         self.__width = width
         self.__height = height
+    
+    def __str__(self):
+        """
+        Return a string representation of the rectangle.
+        """
+        return f"[Rectangle] {self.__width} - {self.__height}"
