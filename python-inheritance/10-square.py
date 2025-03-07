@@ -4,7 +4,6 @@ This module defines a Square class that inherits from Rectangle,
 which in turn inherits from BaseGeometry.
 """
 
-
 class BaseGeometry:
     """
     Base class for geometric shapes.
@@ -82,8 +81,7 @@ class Square(Rectangle):
             size (int): The size of the square.
         """
         self.integer_validator("size", size)  # Validate the size
-        self.__width = size
-        self.__height = size
+        super().__init__(size, size)  # Use the Rectangle class' __init__ method
 
     def area(self):
         """
@@ -98,3 +96,7 @@ class Square(Rectangle):
         [Rectangle] <size>/<size>
         """
         return "[Rectangle] {}/{}".format(self.__width, self.__height)
+
+
+# Example test case
+print(issubclass(Square, Rectangle))  # This should now output True
