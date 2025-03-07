@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/python4
 """
 Module that defines the Square class.
 The Square class inherits from Rectangle, validates the size attribute,
