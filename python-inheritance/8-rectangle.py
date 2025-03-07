@@ -3,7 +3,6 @@
 This module defines a Rectangle class that inherits from BaseGeometry.
 The class validates the width and height during instantiation.
 """
-
 class BaseGeometry:
     """
     Base class with common geometry validation methods.
@@ -12,7 +11,6 @@ class BaseGeometry:
     def area(self):
         """Raises an exception when not implemented in the subclass."""
         raise Exception("area() is not implemented")
-    
     def integer_validator(self, name, value):
         """
         Validates that the value is a positive integer.
@@ -29,8 +27,6 @@ class BaseGeometry:
             raise TypeError("{} must be an integer".format(name))
         if value <= 0:
             raise ValueError("{} must be greater than 0".format(name))
-
-
 class Rectangle(BaseGeometry):
     """
     Rectangle class that inherits from BaseGeometry and validates the
