@@ -3,6 +3,8 @@
 This module defines a Rectangle class that inherits from BaseGeometry
 and implements the area() method.
 """
+
+
 class BaseGeometry:
     """
     Base class with common geometry validation methods.
@@ -36,7 +38,6 @@ class Rectangle(BaseGeometry):
     width and height values, ensuring they are positive integers.
     Implements the area method to calculate the area of the rectangle.
     """
-    
     def __init__(self, width, height):
         """
         Initializes a Rectangle instance with the provided width and height.
@@ -47,7 +48,6 @@ class Rectangle(BaseGeometry):
         """
         self.integer_validator("width", width)  # Validate width
         self.integer_validator("height", height)  # Validate height
-        
         # Private attributes
         self.__width = width
         self.__height = height
