@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 """
-Module for Square class
-This module contains the definition of a Square class that inherits
-the Rectangle class. The Square class represents a geometric
-square with equal sides.
+Module that defines the Square class.
+The Square class inherits from Rectangle and validates the size attribute.
 """
 
 
