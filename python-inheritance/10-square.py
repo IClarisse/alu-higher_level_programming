@@ -5,7 +5,6 @@ This module contains the definition of a Square class that inherits
 from the Rectangle class. The Square class represents a geometric
 square with equal sides.
 """
-Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
