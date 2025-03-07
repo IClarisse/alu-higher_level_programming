@@ -13,7 +13,6 @@ class BaseGeometry:
     The class contains an unimplemented area method that should be overridden
     by subclasses.
     """
-    
     def area(self):
         """
         Raises an Exception indicating that the method is not implemented.
