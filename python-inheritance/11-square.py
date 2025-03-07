@@ -11,6 +11,7 @@ class BaseGeometry:
     def area(self):
         """Raises an exception if called directly. To be implemented """
         raise Exception("area() is not implemented")
+        
     def integer_validator(self, name, value):
         """Validates that the value is a positive integer."""
         if type(value) is not int:
@@ -27,9 +28,11 @@ class Rectangle(BaseGeometry):
         self.integer_validator("height", height)  # Validate height
         self.__width = width  # Private width attribute
         self.__height = height  # Private height attribute
+        
     def area(self):
         """Calculates the area of the rectangle."""
         return self.__width * self.__height
+        
     def __str__(self):
         """Returns a string representation of the rectangle."""
         return f"[Rectangle] {self.__width}/{self.__height}"
@@ -41,6 +44,7 @@ class Square(Rectangle):
         """Initializes a square with a given size."""
         self.integer_validator("size", size)  # Validate size
         super().__init__(size, size)  # Call the parent constructor
+        
     def area(self):
         """Calculates the area of the square."""
         return self._Rectangle__width * self._Rectangle__height
