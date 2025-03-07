@@ -4,6 +4,7 @@ This module defines the class BaseGeometry.
 The class is an empty base class with no functionality.
 """
 
+
 class BaseGeometry:
     """
     A BaseGeometry class that serves as a base for other geometrical shapes.
