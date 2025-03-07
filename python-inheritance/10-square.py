@@ -1,76 +1,35 @@
 #!/usr/bin/python3
 """
-Module 10-square.py
-
-This module defines a Square class that inherits from Rectangle.
+Module for Square class
+This module contains the definition of a Square class that inherits
+from the Rectangle class. The Square class represents a geometric
+square with equal sides.
 """
-
-
-class Rectangle:
-    """
-    A Rectangle class.
-    """
-
-    def __init__(self, width, height):
-        """
-        Initializes a Rectangle instance.
-
-        Args:
-            width (int): The width of the rectangle.
-            height (int): The height of the rectangle.
-        """
-        self.integer_validator("width", width)
-        self.integer_validator("height", height)
-        self.__width = width
-        self.__height = height
-
-    def integer_validator(self, name, value):
-        """
-        Validates the value.
-
-        Args:
-            name (str): The name of the value.
-            value (int): The value to validate.
-
-        Raises:
-            TypeError: If value is not an integer.
-            ValueError: If value is less than or equal to 0.
-        """
-        if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
-
-    def area(self):
-        """
-        Calculates the area of the rectangle.
-
-        Returns:
-            int: The area of the rectangle.
-        """
-        return self.__width * self.__height
-
-    def __str__(self):
-        """
-        Returns a string representation of the Rectangle.
-
-        Returns:
-            str: The string representation of the Rectangle.
-        """
-        return "[Rectangle] {}/{}".format(self.__width, self.__height)
+Rectangle = __import__('9-rectangle').Rectangle
 
 
 class Square(Rectangle):
     """
-    A Square class that inherits from Rectangle.
+    Square class that inherits from Rectangle
+    
+    This class represents a square, which is a special case of a rectangle
+    where all sides are equal. It inherits from the Rectangle class and
+    implements specific behavior for squares.
+    
+    Attributes:
+        __size (int): The size of the square sides
     """
 
     def __init__(self, size):
         """
-        Initializes a Square instance.
-
+        Initialize a Square instance
+        
         Args:
-            size (int): The size of the square.
+            size (int): Size of the square (positive integer)
+        
+        Raises:
+            TypeError: If size is not an integer
+            ValueError: If size is less than or equal to 0
         """
         self.integer_validator("size", size)
         super().__init__(size, size)
@@ -78,18 +37,9 @@ class Square(Rectangle):
 
     def area(self):
         """
-        Calculates the area of the square.
-
+        Calculate the area of the square
+        
         Returns:
-            int: The area of the square.
+            int: The area of the square (size squared)
         """
-        return self.__size * self.__size
-
-    def __str__(self):
-        """
-        Returns a string representation of the Square.
-
-        Returns:
-            str: The string representation of the Square.
-        """
-        return "[Rectangle] {}/{}".format(self.__size, self.__size)
+        return self.__size ** 2
