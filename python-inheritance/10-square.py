@@ -82,6 +82,7 @@ class Square(Rectangle):
             size (int): The size of the square.
         """
         self.integer_validator("size", size)  # Validate the size
+        # Initialize both width and height as size for a square
         self.__width = size
         self.__height = size
 
