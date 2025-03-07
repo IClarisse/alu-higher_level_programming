@@ -80,7 +80,7 @@ class Rectangle:
         """Calculate the perimeter of the rectangle.
 
         Returns:
-            int: The perimeter (2 * (width + height)) or 0 if width or height is 0
+            int: The perimeter (2 * (width + height)) or 0 if width 
         """
         if self.__width == 0 or self.__height == 0:
             return 0
@@ -109,6 +109,6 @@ class Rectangle:
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
-        """Print a message when an instance is deleted and decrement counter."""
+        """Print a message when an instance is deleted ."""
         Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
