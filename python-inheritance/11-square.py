@@ -5,11 +5,12 @@ The Square class inherits from Rectangle, validates the size attribute,
 and provides its own area and string representation.
 """
 
+
 class BaseGeometry:
     """Base class for geometry-related operations."""
 
     def area(self):
-        """Raises an exception if called directly. To be implemented by subclasses."""
+        """Raises an exception if called directly. To be implemented """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
@@ -46,7 +47,7 @@ class Square(Rectangle):
     def __init__(self, size):
         """Initializes a square with a given size."""
         self.integer_validator("size", size)  # Validate size
-        super().__init__(size, size)  # Call the parent constructor with the same size for width and height
+        super().__init__(size, size)  # Call the parent constructor
 
     def area(self):
         """Calculates the area of the square."""
