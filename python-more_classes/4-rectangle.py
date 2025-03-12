@@ -96,7 +96,7 @@ class Rectangle:
             return ""
 
         rect = []
-        for i in range(self.__height):
+        for _ in range(self.__height):
             rect.append("#" * self.__width)
         return "\n".join(rect)
 
@@ -104,6 +104,6 @@ class Rectangle:
         """Return a string representation for recreation with eval().
 
         Returns:
-            str: A string that can be used with eval() to create a new instance.
+            str: A string that can use eval() to create a new instance.
         """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
+        return f"Rectangle({self.__width}, {self.__height})"

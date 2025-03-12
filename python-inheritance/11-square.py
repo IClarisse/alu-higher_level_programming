@@ -8,7 +8,6 @@ and provides its own area and string representation.
 
 class BaseGeometry:
     """Base class for geometry-related operations."""
-
     def area(self):
         """Raises an exception if called directly. To be implemented """
         raise Exception("area() is not implemented")
@@ -23,12 +22,10 @@ class BaseGeometry:
 
 class Rectangle(BaseGeometry):
     """Rectangle class that inherits from BaseGeometry."""
-
     def __init__(self, width, height):
         """Initializes a Rectangle with width and height."""
         self.integer_validator("width", width)  # Validate width
         self.integer_validator("height", height)  # Validate height
-
         self.__width = width  # Private width attribute
         self.__height = height  # Private height attribute
 
@@ -43,7 +40,6 @@ class Rectangle(BaseGeometry):
 
 class Square(Rectangle):
     """Square class that inherits from Rectangle."""
-
     def __init__(self, size):
         """Initializes a square with a given size."""
         self.integer_validator("size", size)  # Validate size
